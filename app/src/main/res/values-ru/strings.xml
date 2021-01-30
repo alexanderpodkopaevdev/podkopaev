@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_text" translatable="false">Упс… Что-то пошло не так. Проверьте подключение к интернету и повторите попытку</string>
+</resources>

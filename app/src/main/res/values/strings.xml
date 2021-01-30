@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">developersLifePost</string>
+    <string name="app_name" translatable="false">developersLifePost</string>
+    <string name="developers_life" translatable="false">Developers Life</string>
+    <string name="error_text">Ooops… Something went wrong. Check Internet connection</string>
 </resources>

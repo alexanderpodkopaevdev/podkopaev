@@ -10,21 +10,19 @@ import kotlinx.coroutines.launch
 
 class PostsViewModel(private val postRepository: PostRepository) : ViewModel() {
 
-    private val _isLoading = MutableLiveData(false)
-    val isLoading: LiveData<Boolean> = _isLoading
-
     private val _isError = MutableLiveData(false)
     val isError: LiveData<Boolean> = _isError
 
     private var _currentPostPosition = MutableLiveData<Int>(0)
     val currentPostPosition: LiveData<Int> = _currentPostPosition
 
+    private val postList = mutableListOf<PostModel>()
+
     private val _currentPost = MutableLiveData<PostModel>().apply { getCurrentPost() }
     val currentPost: LiveData<PostModel> = _currentPost
 
-    private val postList: MutableList<PostModel> = mutableListOf()
-
     private fun getCurrentPost() {
+
         val nextPost = postList.getOrNull(_currentPostPosition.value!!)
         if (nextPost == null) {
             loadPost()

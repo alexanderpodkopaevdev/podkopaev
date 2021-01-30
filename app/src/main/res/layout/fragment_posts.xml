@@ -4,12 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     tools:context=".ui.PostsFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/developers_life"
+        android:textColor="@color/main_text_color"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,8 +30,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_launcher_background" />
 
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/main_text_color"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/ivPostImage"
+        app:layout_constraintStart_toStartOf="@id/ivPostImage"
+        app:layout_constraintTop_toBottomOf="@id/ivPostImage"
+        tools:text="Description" />
+
     <ImageButton
         android:id="@+id/ibBack"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_arrow_back_48"
@@ -29,13 +54,16 @@
 
     <ImageButton
         android:id="@+id/ibNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_forward_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_baseline_arrow_forward_48"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibBack"
-        app:layout_constraintTop_toBottomOf="@id/ivPostImage" />
+        app:layout_constraintTop_toBottomOf="@id/ivPostImage"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
