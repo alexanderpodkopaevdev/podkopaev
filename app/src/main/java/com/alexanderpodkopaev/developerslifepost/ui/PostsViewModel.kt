@@ -22,7 +22,7 @@ class PostsViewModel(private val postRepository: PostRepository) : ViewModel() {
     val currentPost: LiveData<PostModel> = _currentPost
 
     private fun getCurrentPost() {
-
+        _isError.value = false
         val nextPost = postList.getOrNull(_currentPostPosition.value!!)
         if (nextPost == null) {
             loadPost()
@@ -33,9 +33,14 @@ class PostsViewModel(private val postRepository: PostRepository) : ViewModel() {
 
     private fun loadPost() {
         viewModelScope.launch {
-            val newPost = postRepository.getPost()
-            postList.add(newPost)
-            _currentPost.value = newPost
+            try {
+                _isError.value = false
+                val newPost = postRepository.getPost()
+                postList.add(newPost)
+                _currentPost.value = newPost
+            } catch (ex: Exception) {
+                _isError.value = true
+            }
         }
     }
 
